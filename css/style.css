@@ -26,7 +26,6 @@ body {
     overflow: hidden;
     padding: 0 20px;
 }
-
 header {
     background-color: var(--dark-color);
     border-bottom: 1px solid #ddd;
@@ -41,9 +40,10 @@ header .container {
 }
 
 .logo {
-    height: 70px; /* Ajuste a altura conforme o tamanho do seu logo */
-    width: auto;
+    height: 140px; /* Ajuste a altura conforme o tamanho do seu logo */
+    width: 140px;
     display: block;
+    margin-left: -45px; /* Move o logo para a esquerda */
     transition: transform 0.3s ease;
 }
 
