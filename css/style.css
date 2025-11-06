@@ -2,7 +2,7 @@
 
 :root {
     --primary-color: #000000; /* Preto */
-    --secondary-color: #f4f4f4; /* Cinza claro */
+    --secondary-color: 	#DCDCDC; /* Cinza claro */
     --dark-color: #1a1a1a; /* Preto */
     --light-color: #ffffff; /* Branco */
 }
@@ -229,7 +229,7 @@ footer {
     font-family: 'Bangers', cursive;
     letter-spacing: 1px;
     font-size: 1.2rem;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     margin-bottom: 0.5rem;
 }
 
