@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Condiment&family=Roboto+Condensed:wght@400;700&display=swap');
 
 :root {
-    --primary-color: #e74c3c; /* Vermelho mais chamativo */
-    --secondary-color: #ecf0f1; /* Branco acinzentado */
-    --dark-color: #2c3e50; /* Azul escuro/Preto */
+    --primary-color: #000000; /* Preto */
+    --secondary-color: #f4f4f4; /* Cinza claro */
+    --dark-color: #1a1a1a; /* Preto */
     --light-color: #ffffff; /* Branco */
 }
 
@@ -16,8 +16,11 @@
 body {
     font-family: "Condiment", cursive;
     line-height: 1.6;
-    background-color: var(--light-color);
+    background-color: var(--secondary-color);
     color: var(--dark-color);
+}
+html {
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -27,8 +30,7 @@ body {
     padding: 0 20px;
 }
 header {
-    background-color: var(--dark-color);
-    border-bottom: 1px solid #ddd;
+    background-color: var(--primary-color);
     
     padding: 1rem 0;
 }
@@ -37,6 +39,7 @@ header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -61,8 +64,15 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: var(--primary-color);
+    color:#808080;
 }
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: white; }
 
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x800') no-repeat center center/cover; /* Mantenha esta URL ou substitua por uma imagem de fundo real */
@@ -92,7 +102,7 @@ header nav ul li a:hover {
 }
 
 .btn:hover {
-    background-color: #a52a2a;
+    background-color: #333333; /* Cinza bem escuro no hover */
 }
 
 .hero-content h2 {
@@ -109,12 +119,14 @@ header nav ul li a:hover {
 .featured-products {
     padding: 4rem 0;
     text-align: center;
+    background-color: var(--dark-color);
 }
 
 .featured-products h2 {
     letter-spacing: 2px;
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    color: var(--light-color);
 }
 
 .collection-page {
@@ -207,7 +219,7 @@ footer {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -216,7 +228,7 @@ footer {
 .footer-section h4 {
     font-family: 'Bangers', cursive;
     letter-spacing: 1px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
@@ -250,6 +262,23 @@ footer {
     transform: translateY(-10px);
 }
 
+.newsletter-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.newsletter-form input {
+    padding: 0.7rem;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background: #333;
+    color: var(--light-color);
+    width: 80%;
+}
+
 .social-icons img {
     height: 25px; /* Ajuste o tamanho dos ícones */
 }
@@ -270,19 +299,62 @@ footer {
     transform: translateY(-5px);
 }
 
+/* --- Estilos para Animação de Scroll --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* --- Media Queries para Responsividade --- */
 
 @media (max-width: 768px) {
     /* Ajustes no Cabeçalho */
-    header .container {
+    header nav ul {
+        position: fixed;
+        left: -100%;
+        top: 100px; /* Altura do header */
         flex-direction: column;
-        gap: 1rem;
+        background-color: var(--dark-color);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 100;
     }
 
-    header nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0;
+    header nav ul.active {
+        left: 0;
+    }
+
+    header nav ul li {
+        padding: 1rem 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .logo {
+        height: 100px;
+        width: 100px;
     }
 
     /* Ajustes no Rodapé */
@@ -293,6 +365,10 @@ footer {
 
     /* Ajustes na Seção Sobre */
     .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-grid {
         grid-template-columns: 1fr;
     }
 }
