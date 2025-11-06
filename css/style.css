@@ -229,7 +229,7 @@ footer {
     font-family: 'Bangers', cursive;
     letter-spacing: 1px;
     font-size: 1.2rem;
-    color: var(--secondary-color);
+    color: var(--light-color);
     margin-bottom: 0.5rem;
 }
 
