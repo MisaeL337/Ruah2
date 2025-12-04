@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Ruah Streetwear</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/chat.img.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="img/chat.img.png" alt="Logo Ruah" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li><a href="index.html#destaques">DESTAQUES</a></li>
+                    <li><a href="colecao.html">COLEÇÃO</a></li>
+                    <li><a href="index.html#sobre">SOBRE</a></li>
+                    <li><a href="index.html#contato">CONTATO</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 120px; padding-bottom: 40px; min-height: 70vh;">
+        <div class="checkout-form-container">
+            <h1>Finalizar Compra</h1>
+            <p class="checkout-subtitle">Preencha seus dados para o envio do produto.</p>
+            
+            <div class="checkout-summary">
+                <h3>Resumo do Pedido</h3>
+                <div class="summary-item">
+                    <span>Produto:</span>
+                    <strong id="product-name-summary">Carregando...</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Cor:</span>
+                    <span id="product-color-summary">-</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tamanho:</span>
+                    <span id="product-size-summary">-</span>
+                </div>
+                <div class="summary-item">
+                    <span>Valor:</span>
+                    <span id="product-price-summary">R$ 0,00</span>
+                </div>
+            </div>
+
+            <form id="checkout-form">
+                <label for="name">Nome Completo *</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="cep">CEP *</label>
+                <input type="text" id="cep" name="cep" required>
+        
+                <label for="estado">Estado (UF) *</label>
+                <input type="text" id="estado" name="estado" required placeholder="Ex: SP" maxlength="2">
+        
+                <label for="telefone">Telefone (com DDD) *</label>
+                <input type="text" id="telefone" name="telefone" required>
+        
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" required>
+                
+                <button type="submit" class="btn">IR PARA O PAGAMENTO</button>
+            </form>
+            <div id="checkout-message" class="checkout-message"></div>
+        </div>
+    </main>
+
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Navegue</h4>
+                    <ul>
+                        <li><a href="colecao.html">Camisetas</a></li>
+                        <li><a href="#">Moletons</a></li>
+                        <li><a href="#">Acessórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>Email: contato@ruahwear.com</p>
+                    <p>WhatsApp: (11) 99999-8888</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Siga-nos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/ruah.streetwear/" target="_blank"><img src="img/instagram.png.png" alt="Instagram"></a>
+                        <a href="#"><img src="img/whatsapp.png.png" alt="WhatsApp"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Ruah. <a href="https://misael337.github.io/Portifolio/">Misael Dev</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/checkout.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
