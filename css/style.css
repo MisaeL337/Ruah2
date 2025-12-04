@@ -166,6 +166,7 @@ header nav ul li a:hover {
     max-width:100%;
     height: 400px;
     object-fit: cover;
+    object-position: left;
     border-radius: 5px;
     transition: transform 0.3s ease;
 }
@@ -355,6 +356,7 @@ footer {
     .logo {
         height: 100px;
         width: 100px;
+        margin-left: 0; /* Remove a margem negativa em telas menores para evitar o corte */
     }
 
     /* Ajustes no Rodapé */
@@ -390,3 +392,311 @@ footer {
         font-size: 3rem;
     }
 }
+
+/* --- Estilos para a Página de Checkout --- */
+.checkout-form-container {
+    max-width: 700px;
+    margin: auto;
+    background-color: var(--light-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.checkout-form-container h1 {
+    font-family: 'Bangers', cursive;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.checkout-subtitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.checkout-summary {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.checkout-summary h3 {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.checkout-form-container form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+}
+
+.checkout-form-container form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.checkout-form-container form .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.checkout-totals {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.checkout-message {
+    text-align: center;
+    margin-top: 1rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+}
+
+/* --- Estilos para a Página de Compra --- */
+.purchase-page {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo em telas pequenas */
+    gap: 40px; /* Espaço entre a galeria de imagens e os detalhes */
+    max-width: 1200px; /* Largura máxima do container da página de compra */
+    margin: 40px auto; /* Centraliza o container na página */
+    padding: 20px;
+    
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    align-items: flex-start; /* Alinha os itens no topo */
+}
+
+.purchase-image-section {
+    flex: 1; /* Permite que a seção de imagem ocupe o espaço disponível */
+    min-width: 300px; /* Largura mínima para evitar que fique muito espremida */
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;/* Alinha as imagens à esquerda */
+    /* A propriedade 'position: sticky' foi mantida comentada, pois pode precisar de ajustes
+       com 'flex-wrap' em layouts responsivos, dependendo do comportamento desejado. */
+    /* position: sticky; */
+    /* top: 120px; */
+}
+
+.purchase-image-section .imagem-principal { /* Estilo para a imagem principal do produto */
+    width: 100%;
+    max-width: 500px; /* Limita a largura máxima da imagem principal */
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    object-fit: cover;
+}
+
+.purchase-image-section .imagens-miniatura { /* Estilo para as miniaturas das imagens */
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap; /* Permite que as miniaturas quebrem a linha */
+    justify-content: center; /* Centraliza as miniaturas */
+}
+
+.purchase-image-section .imagens-miniatura img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid var(--secondary-color);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.purchase-image-section .imagens-miniatura img:hover,
+.purchase-image-section .imagens-miniatura img.active { /* Efeito hover e estado ativo para miniaturas */
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+}
+
+.purchase-details-section {
+    flex: 1; /* Permite que a seção de detalhes ocupe o espaço disponível */
+    min-width: 300px; /* Largura mínima */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+.purchase-details-section h1 { /* Título do produto */
+    font-family: 'Bangers', cursive;
+    font-size: 2.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.purchase-details-section .preco { /* Preço do produto */
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 2rem;
+    color: #007f61; /* Verde específico, considere adicionar como variável no :root */
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.purchase-details-section .formulario-compra { /* Formulário de seleção de tamanho, quantidade e adicionar ao carrinho */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.purchase-details-section .seletor-tamanho label,
+.purchase-details-section .seletor-quantidade label {
+    font-family: 'Roboto Condensed', sans-serif;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--dark-color);
+    font-size: 1.1rem;
+}
+
+.purchase-details-section .seletor-tamanho select,
+.purchase-details-section .seletor-quantidade input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.purchase-details-section .btn-adicionar-carrinho {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.purchase-details-section .btn-adicionar-carrinho:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+
+.purchase-details-section .descricao { /* Seção de descrição do produto */
+    margin-top: 2rem;
+    border-top: 1px solid var(--secondary-color);
+    padding-top: 1.5rem;
+}
+
+.purchase-details-section .descricao h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.purchase-details-section .descricao p {
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 1.8;
+    color: var(--dark-color);
+}
+
+/* Media Queries para a Página de Compra (Responsividade) */
+@media (max-width: 768px) {
+    .purchase-page {
+        flex-direction: column; /* Empilha as colunas verticalmente em telas menores */
+        gap: 30px;
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .purchase-image-section,
+    .purchase-details-section {
+        min-width: unset; /* Remove a largura mínima para permitir que ocupem 100% */
+        width: 100%;
+    }
+
+    .purchase-details-section h1 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .purchase-details-section .preco {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .purchase-details-section .formulario-compra {
+        align-items: center; /* Centraliza os elementos do formulário */
+    }
+
+    .purchase-details-section .seletor-tamanho,
+    .purchase-details-section .seletor-quantidade {
+        width: 80%; /* Ajusta a largura dos seletores */
+        max-width: 300px;
+    }
+
+    .purchase-details-section .btn-adicionar-carrinho {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .purchase-details-section .descricao {
+        text-align: center;
+    }
+
+    .purchase-image-section .imagens-miniatura img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .purchase-details-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .purchase-details-section .preco {
+        font-size: 1.4rem;
+    }
+
+    .purchase-details-section .seletor-tamanho,
+    .purchase-details-section .seletor-quantidade,
+    .purchase-details-section .btn-adicionar-carrinho {
+        width: 95%; /* Aumenta a largura em telas muito pequenas */
+    }
+}
+
+    /* A regra 'hero-content h2' duplicada foi removida para manter o código limpo. */
+
+
+.purchase-details-section {
+    flex: 1; /* Ocupa a outra metade */
+}
+
+    .hero-content h2 {
+        font-size: 3rem;
+    }
